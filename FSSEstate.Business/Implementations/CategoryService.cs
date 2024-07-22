@@ -88,13 +88,16 @@ namespace FSSEstate.Business.Implementations
         {
             var projectCategoryEntity = await UnitOfWork.CategoryRepository.GetAsync(item => item.Id == id);
             if (projectCategoryEntity is null) throw new Exception("Project category not found!");
+            Mapper.Map(project, projectCategoryEntity);
             if (project.Image is not null)
             {
+                if (!string.IsNullOrEmpty(projectCategoryEntity.Image))
+                    await FileService.DeleteImageAsync(projectCategoryEntity.Image);
+                
                 var imagePath = await FileService.UploadImageAsync(project.Image, "Category");
                 projectCategoryEntity.Image = imagePath;
             }
                         
-            Mapper.Map(project, projectCategoryEntity);
             UnitOfWork.CategoryRepository.Update(projectCategoryEntity);
             await UnitOfWork.CommitAsync();
             return true;
