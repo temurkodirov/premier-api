@@ -12,12 +12,12 @@ public class xProductUpdateModel
     public decimal? Price { get; set; } = decimal.Zero;
     public string? Model { get; set; } = string.Empty;
     public string? Volt { get; set; } = string.Empty;
-    public List<xProductCharacteristicsCreateModel?> Characteristics { get; set; } = default;
     public string? Quvvati { get; set; } = string.Empty;
     public string? Material { get; set; } = string.Empty;
     public string? Speed { get; set; } = string.Empty;
     public string? Size { get; set; } = string.Empty;
     public decimal? Weight { get; set; } = decimal.Zero;
     public List<IFormFile?> Images { get; set; }
+    public List<xProductCharacteristicsCreateModel?> Characteristics { get; set; } = default;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow.AddHours(5);
 }
