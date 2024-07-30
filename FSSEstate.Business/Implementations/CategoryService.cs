@@ -44,9 +44,10 @@ namespace FSSEstate.Business.Implementations
         public async Task<PagedList<CategoryModel>> GetAllAsync(CategoryFilterParams filterParams)
         {
             var entityItems = await UnitOfWork.CategoryRepository.GetAllByQueryAsync(item =>
-              (filterParams.SearchText == string.Empty || item.Name.Contains(filterParams.SearchText)),
-               null, x => x.CreatedAt,
-              filterParams.Order == "desc");
+            (string.IsNullOrEmpty(filterParams.SearchText) || item.Name.Contains(filterParams.SearchText)) &&
+            (filterParams.ParentId == null || item.ParentId == filterParams.ParentId),
+            null, x => x.CreatedAt,
+            filterParams.Order == "desc");
             var items = entityItems.ProjectTo<CategoryModel>(Mapper.ConfigurationProvider);
 
             PagedList<CategoryModel> pagedList = PagedList<CategoryModel>.ToPagedListFromQuery(
@@ -88,7 +89,7 @@ namespace FSSEstate.Business.Implementations
         {
             var projectCategoryEntity = await UnitOfWork.CategoryRepository.GetAsync(item => item.Id == id);
             if (projectCategoryEntity is null) throw new Exception("Project category not found!");
-            Mapper.Map(project, projectCategoryEntity);
+            Mapper.Map(project, projectCategoryEntity);         
             if (project.Image is not null)
             {
                 if (!string.IsNullOrEmpty(projectCategoryEntity.Image))
@@ -96,7 +97,7 @@ namespace FSSEstate.Business.Implementations
                 
                 var imagePath = await FileService.UploadImageAsync(project.Image, "Category");
                 projectCategoryEntity.Image = imagePath;
-            }
+            }   
                         
             UnitOfWork.CategoryRepository.Update(projectCategoryEntity);
             await UnitOfWork.CommitAsync();

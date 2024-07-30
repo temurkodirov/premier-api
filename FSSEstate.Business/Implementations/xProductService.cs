@@ -34,7 +34,7 @@ public class xProductService : BaseService, IxProductService
     public async Task<bool> CreateAsync(xProductCreateModel product)
     {
         var productEntity = Mapper.Map<xProduct>(product);
-        productEntity.SeoUrl = SeoUrlHelper.ToSeoUrl(productEntity.Name);
+        productEntity.SeoUrl = SeoUrlHelper.ToSeoUrl(productEntity.NameUz);
         await UnitOfWork.XProductRepository.AddAsync(productEntity);
         await UnitOfWork.CommitAsync();
         if (productEntity.Id != 0)
@@ -68,6 +68,9 @@ public class xProductService : BaseService, IxProductService
                     await CharacteristicsService.CreateAsync(item);
                     await UnitOfWork.CommitAsync();
                 }
+                
+                productEntity.SeoUrl += $"-{productEntity.Id}";
+                await UnitOfWork.CommitAsync();
                 return true;
             }
             catch (Exception ex)
@@ -114,10 +117,11 @@ public class xProductService : BaseService, IxProductService
     public async Task<PagedList<xProductModel>> GetAllAsync(xProductFilterParams filterParams)
     {
         var entityItems = await UnitOfWork.XProductRepository.GetAllByQueryAsync(item => 
-        (filterParams.SearchText == string.Empty || item.Name.ToLower().Contains(filterParams.SearchText.ToLower())) && 
+        (filterParams.SearchText == string.Empty || item.NameRu.ToLower().Contains(filterParams.SearchText.ToLower())) &&
+        (filterParams.SearchText == string.Empty || item.NameUz.ToLower().Contains(filterParams.SearchText.ToLower())) && 
         (filterParams.CategoryId == null || item.CategoryId == filterParams.CategoryId) && 
-        (filterParams.MaxPrice == null || item.Price <= filterParams.MaxPrice) &&
-        (filterParams.MinPrice == null || item.Price >= filterParams.MinPrice), 
+        (filterParams.MaxPrice == null || item.PriceUsd <= filterParams.MaxPrice) &&    
+        (filterParams.MinPrice == null || item.PriceUsd >= filterParams.MinPrice), 
         null, x => x.CreatedAt, filterParams.Order == "desc");
 
         var productItems = entityItems.ProjectTo<xProductModel>(Mapper.ConfigurationProvider); 
