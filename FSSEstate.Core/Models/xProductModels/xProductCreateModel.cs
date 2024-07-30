@@ -1,5 +1,4 @@
-﻿using FSSEstate.Core.Models.ProjectCategoryModels;
-using FSSEstate.Core.Models.xProductCharacteristicsModels;
+﻿using FSSEstate.Core.Models.xProductCharacteristicsModels;
 using Microsoft.AspNetCore.Http;
 
 namespace FSSEstate.Core.Models.xProductModels;
@@ -20,6 +19,6 @@ public class xProductCreateModel
     public string? ItemTwoRu { get; set; } = string.Empty;
     public string? ItemThreeUz { get; set; } = string.Empty;
     public string? ItemThreeRu { get; set; } = string.Empty;
-    public List<xProductCharacteristicsCreateModel> Characteristics { get; set; } = default;
+    public List<xProductCharacteristicsCreateModel>? CharacteristicsList { get; set; }
     public List<IFormFile> Images { get; set; } = default!;
 }

@@ -61,7 +61,7 @@ public class xProductService : BaseService, IxProductService
                 }
                     
                 int countChars = 0;
-                foreach (var item in product.Characteristics)
+                foreach (var item in product.CharacteristicsList)
                 {
                     item.ProductId = productEntity.Id;
                     countChars++;
