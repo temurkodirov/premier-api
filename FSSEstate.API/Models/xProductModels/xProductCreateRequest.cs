@@ -19,6 +19,6 @@ public class xProductCreateRequest
     public string? ItemTwoRu { get; set; } = string.Empty;
     public string? ItemThreeUz { get; set; } = string.Empty;
     public string? ItemThreeRu { get; set; } = string.Empty;
-    public List<xProductCharacteristicsCreateModel>? Characteristics { get; set; } = default;
+    public List<xProductCharacteristicsCreateModel>? CharacteristicsList { get; set; } = default;
     public List<IFormFile> Images { get; set; } = default!;
 }

@@ -23,7 +23,7 @@ public class xProductModel
     public string? ItemThreeUz { get; set; } = string.Empty;
     public string? ItemThreeRu { get; set; } = string.Empty;
     public List<xProductImageModel>? Images { get; set; } = default!;
-    public List<xProductCharacteristicsModel>? Characteristics { get; set;} = default!;
+    public List<xProductCharacteristicsModel>? CharacteristicsList { get; set;} = default!;
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 }
