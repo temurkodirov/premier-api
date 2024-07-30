@@ -16,14 +16,14 @@ public class xProductModel
     public decimal? PriceSum { get; set; } = decimal.Zero;
     public decimal? PriceUsd { get; set; } = decimal.Zero;
     public string? SeoUrl { get; set; } = string.Empty;
-    public string ItemOneUz { get; set; } = string.Empty;
-    public string ItemOneRu { get; set; } = string.Empty;
-    public string ItemTwoUz { get; set; } = string.Empty;
-    public string ItemTwoRu { get; set; } = string.Empty;
-    public string ItemThreeUz { get; set; } = string.Empty;
-    public string ItemThreeRu { get; set; } = string.Empty;
-    public List<xProductImageModel> Images { get; set; } = default!;
-    public List<xProductCharacteristicsModel> CharacteristicsList { get; set;} = default!;
+    public string? ItemOneUz { get; set; } = string.Empty;
+    public string? ItemOneRu { get; set; } = string.Empty;
+    public string? ItemTwoUz { get; set; } = string.Empty;
+    public string? ItemTwoRu { get; set; } = string.Empty;
+    public string? ItemThreeUz { get; set; } = string.Empty;
+    public string? ItemThreeRu { get; set; } = string.Empty;
+    public List<xProductImageModel>? Images { get; set; } = default!;
+    public List<xProductCharacteristicsModel>? CharacteristicsList { get; set;} = default!;
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 }

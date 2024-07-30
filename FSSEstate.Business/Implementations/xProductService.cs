@@ -52,8 +52,8 @@ public class xProductService : BaseService, IxProductService
                         ProductId = productEntity.Id,
                         ImagePath = imgPath,
                         IsMain = countImages == 1 ? true : false,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now
+                        CreatedAt = DateTime.UtcNow.AddHours(5),
+                        UpdatedAt = DateTime.UtcNow.AddHours(5)
                     };
 
                     await UnitOfWork.XProductImageRepository.AddAsync(productImageEntity);

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FSSEstate.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240720112654_Category")]
-    partial class Category
+    [Migration("20240730121130_new4")]
+    partial class new4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -678,48 +678,52 @@ namespace FSSEstate.Repository.Migrations
                     b.Property<long?>("CategoryId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Characteristics")
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("DescriptionRu")
                         .HasColumnType("text");
 
-                    b.Property<string>("Material")
+                    b.Property<string>("DescriptionUz")
                         .HasColumnType("text");
 
-                    b.Property<string>("Model")
+                    b.Property<string>("ItemOneRu")
                         .HasColumnType("text");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("ItemOneUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ItemThreeRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ItemThreeUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ItemTwoRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ItemTwoUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameRu")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<decimal?>("Price")
+                    b.Property<string>("NameUz")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal?>("PriceSum")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("Quvvati")
-                        .HasColumnType("text");
+                    b.Property<decimal?>("PriceUsd")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("SeoUrl")
                         .HasColumnType("text");
 
-                    b.Property<string>("Size")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Speed")
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Volt")
-                        .HasColumnType("text");
-
-                    b.Property<decimal?>("Weight")
-                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 

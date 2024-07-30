@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FSSEstate.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class new4 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -312,19 +312,20 @@ namespace FSSEstate.Repository.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
+                    NameUz = table.Column<string>(type: "text", nullable: false),
+                    NameRu = table.Column<string>(type: "text", nullable: false),
                     CategoryId = table.Column<long>(type: "bigint", nullable: true),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    Price = table.Column<decimal>(type: "numeric", nullable: true),
-                    Model = table.Column<string>(type: "text", nullable: true),
+                    DescriptionUz = table.Column<string>(type: "text", nullable: true),
+                    DescriptionRu = table.Column<string>(type: "text", nullable: true),
+                    PriceSum = table.Column<decimal>(type: "numeric", nullable: true),
+                    PriceUsd = table.Column<decimal>(type: "numeric", nullable: true),
                     SeoUrl = table.Column<string>(type: "text", nullable: true),
-                    Volt = table.Column<string>(type: "text", nullable: true),
-                    Characteristics = table.Column<string>(type: "text", nullable: true),
-                    Quvvati = table.Column<string>(type: "text", nullable: true),
-                    Material = table.Column<string>(type: "text", nullable: true),
-                    Speed = table.Column<string>(type: "text", nullable: true),
-                    Size = table.Column<string>(type: "text", nullable: true),
-                    Weight = table.Column<decimal>(type: "numeric", nullable: true),
+                    ItemOneUz = table.Column<string>(type: "text", nullable: true),
+                    ItemOneRu = table.Column<string>(type: "text", nullable: true),
+                    ItemTwoUz = table.Column<string>(type: "text", nullable: true),
+                    ItemTwoRu = table.Column<string>(type: "text", nullable: true),
+                    ItemThreeUz = table.Column<string>(type: "text", nullable: true),
+                    ItemThreeRu = table.Column<string>(type: "text", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },

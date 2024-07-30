@@ -24,6 +24,7 @@ public class AppDbContext : DbContext
     public DbSet<AgentAffairEntity> AgentAffairs { get; set; }
     public DbSet<xProduct> xProducts { get; set; }
     public DbSet<xProductImage> xProductImages { get; set; }
+    public DbSet<xProductCharacteristics> xProductCharacteristics { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

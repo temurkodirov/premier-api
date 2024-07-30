@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FSSEstate.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240720172410_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240730131102_new5")]
+    partial class new5
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -678,54 +678,94 @@ namespace FSSEstate.Repository.Migrations
                     b.Property<long?>("CategoryId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Characteristics")
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("DescriptionRu")
                         .HasColumnType("text");
 
-                    b.Property<string>("Material")
+                    b.Property<string>("DescriptionUz")
                         .HasColumnType("text");
 
-                    b.Property<string>("Model")
+                    b.Property<string>("ItemOneRu")
                         .HasColumnType("text");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("ItemOneUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ItemThreeRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ItemThreeUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ItemTwoRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ItemTwoUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameRu")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<decimal?>("Price")
+                    b.Property<string>("NameUz")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal?>("PriceSum")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("Quvvati")
-                        .HasColumnType("text");
+                    b.Property<decimal?>("PriceUsd")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("SeoUrl")
                         .HasColumnType("text");
 
-                    b.Property<string>("Size")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Speed")
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Volt")
-                        .HasColumnType("text");
-
-                    b.Property<decimal?>("Weight")
-                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("xProducts");
+                });
+
+            modelBuilder.Entity("FSSEstate.Repository.Entities.xProductCharacteristics", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("DescRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameUz")
+                        .HasColumnType("text");
+
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("xProductCharacteristics");
                 });
 
             modelBuilder.Entity("FSSEstate.Repository.Entities.xProductImage", b =>
@@ -846,6 +886,17 @@ namespace FSSEstate.Repository.Migrations
                         .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("FSSEstate.Repository.Entities.xProductCharacteristics", b =>
+                {
+                    b.HasOne("FSSEstate.Repository.Entities.xProduct", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }
