@@ -18,6 +18,7 @@ using FSSEstate.Core.Models.ProjectCategoryModels;
 using FSSEstate.Core.Models.ProjectModels;
 using FSSEstate.Core.Models.ReviewModels;
 using FSSEstate.Core.Models.UserModels;
+using FSSEstate.Core.Models.xProductCharacteristicsModels;
 using FSSEstate.Core.Models.xProductModels;
 using FSSEstate.Repository.Entities;
 
@@ -60,6 +61,7 @@ namespace FSSEstate.API.Helpers
             CreateMap<InformationUpdateRequest, InformationUpdateModel>();
 
             CreateMap<xProductCreateRequest, xProductCreateModel> ();
+            CreateMap<xProductCharacteristicsCreateModel, xProductCharacteristics>().ReverseMap();
         }
     }
 }

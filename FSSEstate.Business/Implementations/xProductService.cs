@@ -59,7 +59,7 @@ public class xProductService : BaseService, IxProductService
                     await UnitOfWork.XProductImageRepository.AddAsync(productImageEntity);
                     await UnitOfWork.CommitAsync();
                 }
-                    
+                
                 int countChars = 0;
                 foreach (var item in product.CharacteristicsList)
                 {
