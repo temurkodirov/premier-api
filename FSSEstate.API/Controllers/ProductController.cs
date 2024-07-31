@@ -41,6 +41,7 @@ public class ProductController : BaseController
     }
 
 
+
     [HttpPost("product/delete")]
     public async Task<IActionResult> Delete(long id)
     {

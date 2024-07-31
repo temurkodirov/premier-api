@@ -1,4 +1,6 @@
-﻿using FSSEstate.Core.Models.xProductCharacteristicsModels;
+﻿using FSSEstate.API.Helpers;
+using FSSEstate.Core.Models.xProductCharacteristicsModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FSSEstate.API.Models.xProductModels;
 
@@ -19,6 +21,8 @@ public class xProductCreateRequest
     public string? ItemTwoRu { get; set; } = string.Empty;
     public string? ItemThreeUz { get; set; } = string.Empty;
     public string? ItemThreeRu { get; set; } = string.Empty;
-    public List<xProductCharacteristicsCreateModel>? CharacteristicsList { get; set; }
-    public List<IFormFile> Images { get; set; } = default!;
+
+    [ModelBinder(BinderType = typeof(JsonModelBinder))]
+    public List<xProductCharacterRequestModel> CharacteristicsList { get; set; }
+   public List<IFormFile> Images { get; set; } = default!;
 }
