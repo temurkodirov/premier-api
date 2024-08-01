@@ -1,5 +1,4 @@
 ﻿using FSSEstate.API.Helpers;
-using FSSEstate.Core.Models.xProductCharacteristicsModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FSSEstate.API.Models.xProductModels;
