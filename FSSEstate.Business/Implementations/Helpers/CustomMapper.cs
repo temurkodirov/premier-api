@@ -11,6 +11,7 @@ using FSSEstate.Core.Models.ProjectModels;
 using FSSEstate.Core.Models.ProjectPhotosModels;
 using FSSEstate.Core.Models.ReviewModels;
 using FSSEstate.Core.Models.UserModels;
+using FSSEstate.Core.Models.xProductCharacteristicsModels;
 using FSSEstate.Core.Models.xProductImageModels;
 using FSSEstate.Core.Models.xProductModels;
 using FSSEstate.Repository.Entities;
@@ -55,7 +56,7 @@ namespace FSSEstate.Business.Implementations.Helpers
             CreateMap<xProductImageCreateModel, xProductImage>();
             CreateMap<xProductImage, xProductImageModel>();
             CreateMap<xProductUpdateModel, xProductImageModel>();
-
+            CreateMap<xProductCharacteristicsCreateModel, xProductCharacteristics>();
 
             CreateMap<AffairCreateModel, AffairEntity>();
             CreateMap<AffairEntity, AffairModel>();

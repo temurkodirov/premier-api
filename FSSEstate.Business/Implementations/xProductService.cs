@@ -65,7 +65,19 @@ public class xProductService : BaseService, IxProductService
                 {
                     item.ProductId = productEntity.Id;
                     countChars++;
-                    await CharacteristicsService.CreateAsync(item);
+                    var characterEntity = new xProductCharacteristics
+                    {
+                        NameRu = item.NameRu,
+                        NameUz = item.NameUz,
+                        DescRu = item.DescRu,
+                        DescUz = item.DescUz,
+                        ProductId = productEntity.Id,
+                        CreatedAt = DateTime.UtcNow.AddHours(5),
+                        UpdatedAt = DateTime.UtcNow.AddHours(5)
+                   
+                    };
+                    await UnitOfWork.XProductCharacteristicsRepository.AddAsync(characterEntity);
+                    //await CharacteristicsService.CreateAsync(item);
                     await UnitOfWork.CommitAsync();
                 }
                 

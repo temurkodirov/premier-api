@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using FSSEstate.Business.Implementations.Authorization;
 using FSSEstate.Business.Interfaces;
 using FSSEstate.Business.Interfaces.Authorization;
-using FSSEstate.Core.Models.ProjectPhotosModels;
 using FSSEstate.Core.Models.xProductCharacteristicsModels;
 using FSSEstate.Core.Utility.Listing;
 using FSSEstate.Repository.Entities;
-using FSSEstate.Repository.Implementations;
 using FSSEstate.Repository.Interfaces;
 
 namespace FSSEstate.Business.Implementations;

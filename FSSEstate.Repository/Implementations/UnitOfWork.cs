@@ -41,10 +41,9 @@ namespace FSSEstate.Repository.Implementations
         public IInformationPhotosRepository InformationPhotosRepository => _informationPhotosRepository ?? (_informationPhotosRepository = new InformationPhotosRepository(_dbContext)); 
         public IAgentAffairRepository AgentAffairRepository => _agentAffairRepository ?? (_agentAffairRepository= new AgentAffairRepository(_dbContext));
         public IxProductRepository XProductRepository => _xProductRepository ?? (_xProductRepository = new xProductRepository(_dbContext));
-        public IxProductCharacteristicsRepository XProductCharacteristicsRepository { get; }
-
+      
         public IxProductImageRepository XProductImageRepository => _xProductImageRepository ?? (_xProductImageRepository = new xProductImageRepository(_dbContext));
-        public IxProductCharacteristicsRepository characteristicsRepository => _xProductCharacteristicsRepository ?? (_xProductCharacteristicsRepository = new xProductCharacteristicsRepository(_dbContext));
+        public IxProductCharacteristicsRepository XProductCharacteristicsRepository => _xProductCharacteristicsRepository ?? (_xProductCharacteristicsRepository = new xProductCharacteristicsRepository(_dbContext));
 
 
         public async Task CommitAsync()

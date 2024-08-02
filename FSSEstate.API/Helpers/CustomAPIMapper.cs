@@ -61,7 +61,7 @@ namespace FSSEstate.API.Helpers
             CreateMap<InformationUpdateRequest, InformationUpdateModel>();
 
             CreateMap<xProductCreateRequest, xProductCreateModel> ();
-            CreateMap<xProductCharacteristicsCreateModel, xProductCharacteristics>().ReverseMap();
+            CreateMap<xProductCharacteristicsCreateModel, xProductCharacterRequestModel>().ReverseMap();
         }
     }
 }
