@@ -56,7 +56,10 @@ namespace FSSEstate.Business.Implementations.Helpers
             CreateMap<xProductImageCreateModel, xProductImage>();
             CreateMap<xProductImage, xProductImageModel>();
             CreateMap<xProductUpdateModel, xProductImageModel>();
+
             CreateMap<xProductCharacteristicsCreateModel, xProductCharacteristics>();
+            CreateMap<xProductCharacteristics, xProductCharacteristicsModel>();
+
 
             CreateMap<AffairCreateModel, AffairEntity>();
             CreateMap<AffairEntity, AffairModel>();

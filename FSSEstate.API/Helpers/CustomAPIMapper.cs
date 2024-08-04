@@ -63,6 +63,8 @@ namespace FSSEstate.API.Helpers
             CreateMap<xProductCreateRequest, xProductCreateModel> ();
             CreateMap<xProductCharacteristicsCreateModel, xProductCharacterRequestModel>().ReverseMap();
             CreateMap<xProductCharacteristicsCreateModel, xProductCharacteristics>().ReverseMap();
+
+            CreateMap <xProductCharacteristicsModel, xProductCharacteristics>().ReverseMap();
         }
     }
 }
